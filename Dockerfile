@@ -27,6 +27,14 @@ RUN mkdir -p /tmp/yarn && \
 RUN ln -sf /opt/yarn/dist/bin/yarn /usr/local/bin/yarn && \
     ln -sf /opt/yarn/dist/bin/yarn /usr/local/bin/yarnpkg && \
     yarn --version
+    
+RUN apk add --no-cache \
+    build-base \
+    g++ \
+    cairo-dev \
+    jpeg-dev \
+    pango-dev \
+    giflib-dev
 
 ENV SERVERLESS serverless@1.55.1
 RUN yarn global add $SERVERLESS
